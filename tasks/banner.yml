@@ -1,0 +1,16 @@
+- name: Copy sshd banner
+  tags: ssh-banner-copy
+  copy:
+    src: banner
+    dest: /etc/issue
+    mode: 444
+    owner: root
+    group: bin
+
+- name: Set banner file in sshd_config
+  tags: ssh-banner-config
+  lineinfile:
+    dest: /etc/ssh/sshd_config
+    state: present
+    regexp: 'Banner'
+    line: 'Banner /etc/issue'

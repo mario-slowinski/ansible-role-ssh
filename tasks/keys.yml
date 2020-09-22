@@ -1,0 +1,5 @@
+- name: Add id_rsa.pub key to authorized keys
+  authorized_key:
+    user: root
+    state: present
+    key: "{{ lookup('file', lookup('env','HOME') + '/.ssh/id_rsa.pub') }}"

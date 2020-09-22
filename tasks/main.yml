@@ -1,0 +1,16 @@
+- name: "Disable passing ssh client locale"
+  tags: ssh-locale
+  include_tasks: locale.yml
+
+- name: "Set ssh banner"
+  tags: ssh-banner
+  include_tasks: banner.yml
+
+- name: "Set shell color prompt"
+  tags: ssh-prompt
+  include_tasks: prompt.yml
+
+- name: "Setup ssh keys"
+  tags: ssh-keys
+  include_tasks: keys.yml
+
